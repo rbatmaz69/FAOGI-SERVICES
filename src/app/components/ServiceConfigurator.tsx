@@ -388,6 +388,53 @@ export function ServiceConfigurator({ isOpen, onClose }: ServiceConfiguratorProp
 
   if (!isOpen) return null;
 
+  {/* TODO: Platzhalter entfernen, sobald Konfigurator finalisiert ist */}
+  return (
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
+      <div className="absolute inset-0 bg-black/60" onClick={handleClose} />
+
+      <div className="relative bg-white w-full sm:max-w-md sm:rounded-2xl rounded-t-3xl p-8 text-center">
+        <button
+          onClick={handleClose}
+          className="absolute top-4 right-4 w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors"
+          aria-label="Schließen"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <h3 className="text-xl mb-6 pt-2">FAOGI SERVICES</h3>
+
+        <div className="bg-red-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5">
+          <Wrench className="w-8 h-8 text-red-600" />
+        </div>
+
+        <h4 className="text-lg mb-2">Service-Konfigurator in Kürze verfügbar</h4>
+        <p className="text-gray-600 text-sm leading-relaxed mb-6">
+          Wir arbeiten gerade an unserem Online-Konfigurator. In der Zwischenzeit
+          erstellen wir Ihnen gerne ein persönliches, unverbindliches Angebot –
+          rufen Sie uns einfach an oder schreiben Sie uns.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="tel:+4915224190030"
+            className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl flex items-center justify-center gap-2 transition-colors"
+          >
+            <PhoneIcon className="w-5 h-5" />
+            Jetzt anrufen
+          </a>
+          <a
+            href="mailto:info@faogi-services.de"
+            className="bg-gray-100 hover:bg-gray-200 text-black px-6 py-3 rounded-xl flex items-center justify-center gap-2 transition-colors"
+          >
+            <Mail className="w-5 h-5" />
+            E-Mail schreiben
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+
   const getTotalSteps = () => {
     let steps = 8; // Base steps
     if (formData.services.includes('reinigung')) steps += 1;
