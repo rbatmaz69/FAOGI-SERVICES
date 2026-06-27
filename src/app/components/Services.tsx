@@ -1,53 +1,7 @@
-import { Leaf, Scissors, Snowflake, Wrench, Sparkles, Fence, Home, Trash2, CalendarCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '@/app/hooks/useScrollReveal';
-
-const services = [
-  {
-    icon: Wrench,
-    title: 'Hausmeisterservice',
-    description: 'Umfassende Betreuung Ihrer Immobilie',
-  },
-  {
-    icon: Sparkles,
-    title: 'Reinigung',
-    description: 'Professionelle Reinigungsarbeiten innen und außen',
-  },
-  {
-    icon: Leaf,
-    title: 'Gartenpflege',
-    description: 'Professionelle Pflege Ihres Gartens das ganze Jahr über',
-  },
-  {
-    icon: Scissors,
-    title: 'Außenanlagenpflege',
-    description: 'Gehwege, Höfe und befestigte Flächen',
-  },
-  {
-    icon: Snowflake,
-    title: 'Winterdienst',
-    description: 'Zuverlässiger Schnee- und Räumdienst bei jedem Wetter',
-  },
-  {
-    icon: Fence,
-    title: 'Zaunmontage',
-    description: 'Professionelle Montage und Reparatur von Zäunen',
-  },
-  {
-    icon: Home,
-    title: 'Terrassenüberdachung',
-    description: 'Planung und Montage von Terrassenüberdachungen',
-  },
-  {
-    icon: Trash2,
-    title: 'Entrümpelung',
-    description: 'Professionelle Entrümpelung von Wohnungen und Objekten',
-  },
-  {
-    icon: CalendarCheck,
-    title: 'Event Planung',
-    description: 'Planung und Organisation Ihrer Veranstaltungen – von der Idee bis zur Umsetzung',
-  },
-];
+import { services } from '@/app/data/services';
 
 export function Services() {
   const ref = useScrollReveal();
@@ -62,12 +16,13 @@ export function Services() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => {
+          {services.map((service) => {
             const Icon = service.icon;
             return (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-2xl border border-gray-200 hover:border-red-600 hover:shadow-xl transition-all cursor-pointer group"
+              <Link
+                key={service.slug}
+                to={`/leistungen/${service.slug}`}
+                className="bg-white p-6 rounded-2xl border border-gray-200 hover:border-red-600 hover:shadow-xl transition-all cursor-pointer group flex flex-col"
               >
                 <div className="bg-gray-100 group-hover:bg-red-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-colors">
                   <Icon className="w-7 h-7 text-black group-hover:text-white transition-colors" />
@@ -76,7 +31,10 @@ export function Services() {
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {service.description}
                 </p>
-              </div>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm text-red-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                  Mehr erfahren <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
             );
           })}
         </div>

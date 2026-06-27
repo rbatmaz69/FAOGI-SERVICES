@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import logo from '@/assets/logo.png';
 
@@ -16,6 +17,12 @@ const navLinks = [
 export function Header({ onRequestService }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
+  // Auf Unterseiten immer die solide (helle) Variante zeigen, damit Text lesbar bleibt
+  const solid = scrolled || !isHome;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -24,22 +31,38 @@ export function Header({ onRequestService }: HeaderProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const goHome = () => {
+    if (isHome) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+  };
+
   const scrollTo = (id: string) => {
     setMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (isHome) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Erst zur Startseite wechseln, dann zur gewünschten Sektion scrollen
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
   };
 
   return (
     <header
       className={`fixed inset-x-0 z-40 transition-all duration-500 ${
-        scrolled
+        solid
           ? 'top-3 mx-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-2xl'
           : 'top-0 bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={goHome}
           className="flex items-center gap-1 text-lg tracking-tight"
         >
           <img src={logo} alt="FAOGI Logo" className="h-11 w-auto" />
@@ -53,7 +76,7 @@ export function Header({ onRequestService }: HeaderProps) {
               key={link.id}
               onClick={() => scrollTo(link.id)}
               className={`text-sm transition-colors hover:text-red-600 ${
-                scrolled ? 'text-gray-700' : 'text-white/90'
+                solid ? 'text-gray-700' : 'text-white/90'
               }`}
             >
               {link.label}
@@ -72,7 +95,7 @@ export function Header({ onRequestService }: HeaderProps) {
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="Menü"
           className={`md:hidden w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
-            scrolled ? 'text-black hover:bg-gray-100' : 'text-white hover:bg-white/10'
+            solid ? 'text-black hover:bg-gray-100' : 'text-white hover:bg-white/10'
           }`}
         >
           {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

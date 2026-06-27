@@ -1,16 +1,14 @@
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { ServiceConfigurator } from './components/ServiceConfigurator';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { About } from './components/About';
-import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { StickyCallButton } from './components/StickyCallButton';
+import { ServiceConfigurator } from './components/ServiceConfigurator';
 import { Impressum } from './components/Impressum';
 import { Datenschutz } from './components/Datenschutz';
+import { Home } from './pages/Home';
+import { LeistungenDetail } from './pages/LeistungenDetail';
 
 export default function App() {
   const [showConfigurator, setShowConfigurator] = useState(false);
@@ -21,21 +19,30 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white">
       <Header onRequestService={openConfigurator} />
-      <Hero onRequestService={openConfigurator} />
-      <Services />
-      <ServiceConfigurator
-        isOpen={showConfigurator}
-        onClose={() => setShowConfigurator(false)}
-      />
-      <WhyChooseUs />
-      <About />
-      <Contact />
+
+      <Routes>
+        <Route path="/" element={<Home onRequestService={openConfigurator} />} />
+        <Route
+          path="/leistungen"
+          element={<LeistungenDetail onRequestService={openConfigurator} />}
+        />
+        <Route
+          path="/leistungen/:slug"
+          element={<LeistungenDetail onRequestService={openConfigurator} />}
+        />
+      </Routes>
+
       <Footer
         onRequestService={openConfigurator}
         onShowImpressum={() => setShowImpressum(true)}
         onShowDatenschutz={() => setShowDatenschutz(true)}
       />
       <StickyCallButton />
+
+      <ServiceConfigurator
+        isOpen={showConfigurator}
+        onClose={() => setShowConfigurator(false)}
+      />
       <Impressum isOpen={showImpressum} onClose={() => setShowImpressum(false)} />
       <Datenschutz isOpen={showDatenschutz} onClose={() => setShowDatenschutz(false)} />
       <Toaster position="top-center" richColors />
