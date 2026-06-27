@@ -24,7 +24,7 @@ export function Hero({ onRequestService }: HeroProps) {
           FAOGI SERVICES
         </h1>
         <p className="text-white/90 mb-8 text-xl md:text-2xl">
-          Ihr zuverlässiger Partner für Hausmeisterservice & Außenanlagenpflege
+          Ihr zuverlässiger Partner für Gebäude, Garten und Event!
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

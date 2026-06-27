@@ -1,4 +1,4 @@
-import { Leaf, Scissors, Snowflake, Wrench, Sparkles, Fence, Home, Trash2 } from 'lucide-react';
+import { Leaf, Scissors, Snowflake, Wrench, Sparkles, Fence, Home, Trash2, CalendarCheck } from 'lucide-react';
 
 const services = [
   {
@@ -40,6 +40,11 @@ const services = [
     icon: Trash2,
     title: 'Entrümpelung',
     description: 'Professionelle Entrümpelung von Wohnungen und Objekten',
+  },
+  {
+    icon: CalendarCheck,
+    title: 'Event Planung',
+    description: 'Planung und Organisation Ihrer Veranstaltungen – von der Idee bis zur Umsetzung',
   },
 ];
 
