@@ -9,8 +9,10 @@ interface HeaderProps {
 
 const navLinks = [
   { id: 'services', label: 'Leistungen' },
+  { id: 'ablauf', label: 'Ablauf' },
   { id: 'why', label: 'Warum wir?' },
   { id: 'about', label: 'Über uns' },
+  { id: 'faq', label: 'FAQ' },
   { id: 'contact', label: 'Kontakt' },
 ];
 

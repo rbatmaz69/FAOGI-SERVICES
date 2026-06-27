@@ -62,32 +62,13 @@ export function Datenschutz({ isOpen, onClose }: DatenschutzProps) {
           </section>
 
           <section>
-            <h3 className="text-base font-semibold text-black mb-2">4. Google Fonts</h3>
+            <h3 className="text-base font-semibold text-black mb-2">4. Schriftarten (Fonts)</h3>
             <p>
-              Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten sogenannte Google Fonts,
-              die von Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA bereitgestellt
-              werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Schriftarten in Ihren
-              Browser-Cache, wobei Ihre IP-Adresse an Google übermittelt wird.<br /><br />
-              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an
-              einer einheitlichen und technisch einwandfreien Darstellung).<br /><br />
-              Mehr Informationen zu Google Fonts finden Sie unter{' '}
-              <a
-                href="https://developers.google.com/fonts/faq"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-red-600 hover:underline"
-              >
-                developers.google.com/fonts/faq
-              </a>{' '}
-              sowie in der Datenschutzerklärung von Google:{' '}
-              <a
-                href="https://policies.google.com/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-red-600 hover:underline"
-              >
-                policies.google.com/privacy
-              </a>.
+              Diese Seite verwendet zur einheitlichen Darstellung die Schriftart „Montserrat".
+              Die Schriftdateien werden lokal von unserem eigenen Webserver geladen und sind
+              fester Bestandteil dieser Website. Es findet <strong>keine Verbindung zu Servern
+              von Google oder anderen Drittanbietern</strong> statt, und es werden hierbei keine
+              personenbezogenen Daten (insbesondere keine IP-Adresse) an Dritte übermittelt.
             </p>
           </section>
 
