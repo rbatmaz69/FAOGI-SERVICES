@@ -51,15 +51,15 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Contact Info */}
           <div className="space-y-6">
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
+            <div className="bg-white p-6 rounded-2xl shadow-sm h-full">
               <h3 className="mb-6">Kontaktmöglichkeiten</h3>
 
               <div className="space-y-4">
                 <a
-                  href="tel:+4912345678"
+                  href="tel:+4915224190030"
                   className="flex items-center gap-4 p-4 rounded-xl hover:bg-red-50 transition-colors group"
                 >
                   <div className="bg-red-100 group-hover:bg-red-600 w-12 h-12 rounded-xl flex items-center justify-center transition-colors">
@@ -67,12 +67,12 @@ export function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-gray-600">Telefon</div>
-                    <div>+49 123 456 78</div>
+                    <div>+49 1522 4190030</div>
                   </div>
                 </a>
 
                 <a
-                  href="https://wa.me/4912345678"
+                  href="https://wa.me/4915224190030"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl hover:bg-red-50 transition-colors group"
@@ -82,7 +82,7 @@ export function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-gray-600">WhatsApp</div>
-                    <div>+49 123 456 78</div>
+                    <div>+49 1522 4190030</div>
                   </div>
                 </a>
 
@@ -120,26 +120,17 @@ export function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-gray-600">Adresse</div>
-                    <div>Musterstraße 123</div>
-                    <div>12345 Musterstadt</div>
+                    <div>Gartenstraße 88</div>
+                    <div>74076 Heilbronn</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <div className="aspect-video bg-gray-200 rounded-xl flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <MapPin className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                  <div className="text-sm">Karte wird geladen...</div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white p-6 rounded-2xl shadow-sm">
+          <div className="bg-white p-6 rounded-2xl shadow-sm h-full">
             <h3 className="mb-6">Nachricht senden</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -182,7 +173,7 @@ export function Contact() {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-red-600 outline-none transition-colors"
-                  placeholder="+49 123 456 78"
+                  placeholder="+49 1522 4190030"
                 />
               </div>
 

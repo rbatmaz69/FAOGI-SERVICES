@@ -38,12 +38,10 @@ export function Header({ onRequestService }: HeaderProps) {
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className={`flex items-center gap-1 text-lg tracking-tight transition-colors ${
-            scrolled ? 'text-black' : 'text-white'
-          }`}
+          className="flex items-center gap-1 text-lg tracking-tight"
         >
           <img src={logo} alt="FAOGI Logo" className="h-11 w-auto" />
-          FAOGI <span className="text-red-600">SERVICES</span>
+          <span className="text-black">FAOGI</span> <span className="text-red-600">SERVICES</span>
         </button>
 
         {/* Desktop nav */}

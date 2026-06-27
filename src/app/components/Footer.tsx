@@ -20,8 +20,7 @@ export function Footer({ onRequestService }: FooterProps) {
               FAOGI <span className="text-red-500">SERVICES</span>
             </div>
             <p className="text-sm text-white/60 leading-relaxed">
-              Ihr zuverlässiger Partner für Hausmeisterservice, Gartenpflege und
-              Außenanlagenpflege in der Region.
+              Ihr zuverlässiger Partner für Gebäude, Garten und Event!
             </p>
           </div>
 
@@ -43,8 +42,8 @@ export function Footer({ onRequestService }: FooterProps) {
             <ul className="space-y-3 text-sm text-white/60">
               {/* TODO: echte Kontaktdaten eintragen */}
               <li>
-                <a href="tel:+4912345678" className="flex items-center gap-2 hover:text-white transition-colors">
-                  <Phone className="w-4 h-4" /> +49 123 456 78
+                <a href="tel:+4915224190030" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Phone className="w-4 h-4" /> +49 1522 4190030
                 </a>
               </li>
               <li>
@@ -53,7 +52,7 @@ export function Footer({ onRequestService }: FooterProps) {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" /> Musterstraße 123, 12345 Musterstadt
+                <MapPin className="w-4 h-4" /> Gartenstraße 88, 74076 Heilbronn
               </li>
             </ul>
           </div>
