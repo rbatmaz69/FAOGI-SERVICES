@@ -1,8 +1,10 @@
 import { Phone, MessageCircle, Mail, MapPin, Wrench } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { useScrollReveal } from '@/app/hooks/useScrollReveal';
 
 export function Contact() {
+  const ref = useScrollReveal();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -42,7 +44,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 px-4 bg-gray-50 scroll-mt-16">
+    <section ref={ref} id="contact" className="py-16 px-4 bg-gray-50 scroll-mt-16 reveal">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="mb-4 text-3xl md:text-4xl">Kontakt</h2>

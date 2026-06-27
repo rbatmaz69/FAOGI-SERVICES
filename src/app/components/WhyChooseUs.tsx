@@ -1,4 +1,5 @@
 import { Clock, Shield, DollarSign, MapPin, Award } from 'lucide-react';
+import { useScrollReveal } from '@/app/hooks/useScrollReveal';
 
 const features = [
   {
@@ -30,8 +31,9 @@ const features = [
 ];
 
 export function WhyChooseUs() {
+  const ref = useScrollReveal();
   return (
-    <section id="why" className="py-16 px-4 bg-gray-50 scroll-mt-16">
+    <section ref={ref} id="why" className="py-16 px-4 bg-gray-50 scroll-mt-16 reveal">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="mb-4 text-3xl md:text-4xl">Warum FAOGI SERVICES?</h2>

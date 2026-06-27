@@ -31,8 +31,10 @@ export function Header({ onRequestService }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all ${
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
+      className={`fixed inset-x-0 z-40 transition-all duration-500 ${
+        scrolled
+          ? 'top-3 mx-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-2xl'
+          : 'top-0 bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">

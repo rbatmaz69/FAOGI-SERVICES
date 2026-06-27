@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useScrollReveal } from '@/app/hooks/useScrollReveal';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import heckenpflege from '@/assets/about/heckenpflege.jpg';
 import schubkarre from '@/assets/about/schubkarre-bepflanzung.jpg';
@@ -15,6 +16,7 @@ const slides = [
 const SLIDE_INTERVAL = 5000;
 
 export function About() {
+  const ref = useScrollReveal();
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export function About() {
   const next = () => goTo(current + 1);
 
   return (
-    <section id="about" className="py-16 px-4 bg-white scroll-mt-16">
+    <section ref={ref} id="about" className="py-16 px-4 bg-white scroll-mt-16 reveal">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
