@@ -2,9 +2,11 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 
 interface FooterProps {
   onRequestService: () => void;
+  onShowImpressum: () => void;
+  onShowDatenschutz: () => void;
 }
 
-export function Footer({ onRequestService }: FooterProps) {
+export function Footer({ onRequestService, onShowImpressum, onShowDatenschutz }: FooterProps) {
   const year = new Date().getFullYear();
 
   const scrollTo = (id: string) =>
@@ -74,10 +76,10 @@ export function Footer({ onRequestService }: FooterProps) {
               </li>
               {/* TODO: Impressum & Datenschutz sind in DE rechtlich Pflicht – Inhalte ergänzen */}
               <li>
-                <a href="#impressum" className="hover:text-white transition-colors">Impressum</a>
+                <button onClick={onShowImpressum} className="hover:text-white transition-colors text-left">Impressum</button>
               </li>
               <li>
-                <a href="#datenschutz" className="hover:text-white transition-colors">Datenschutz</a>
+                <button onClick={onShowDatenschutz} className="hover:text-white transition-colors text-left">Datenschutz</button>
               </li>
             </ul>
           </div>

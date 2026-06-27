@@ -9,9 +9,13 @@ import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { StickyCallButton } from './components/StickyCallButton';
+import { Impressum } from './components/Impressum';
+import { Datenschutz } from './components/Datenschutz';
 
 export default function App() {
   const [showConfigurator, setShowConfigurator] = useState(false);
+  const [showImpressum, setShowImpressum] = useState(false);
+  const [showDatenschutz, setShowDatenschutz] = useState(false);
   const openConfigurator = () => setShowConfigurator(true);
 
   return (
@@ -26,8 +30,14 @@ export default function App() {
       <WhyChooseUs />
       <About />
       <Contact />
-      <Footer onRequestService={openConfigurator} />
+      <Footer
+        onRequestService={openConfigurator}
+        onShowImpressum={() => setShowImpressum(true)}
+        onShowDatenschutz={() => setShowDatenschutz(true)}
+      />
       <StickyCallButton />
+      <Impressum isOpen={showImpressum} onClose={() => setShowImpressum(false)} />
+      <Datenschutz isOpen={showDatenschutz} onClose={() => setShowDatenschutz(false)} />
       <Toaster position="top-center" richColors />
     </div>
   );
