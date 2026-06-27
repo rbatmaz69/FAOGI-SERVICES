@@ -1,4 +1,5 @@
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import logistikwagen from '@/assets/logistikwagen.jpg';
 
 interface HeroProps {
   onRequestService: () => void;
@@ -10,8 +11,8 @@ export function Hero({ onRequestService }: HeroProps) {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1689728318937-17d24bc0a65c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwzfHxnYXJkZW4lMjBtYWludGVuYW5jZSUyMHByb2Zlc3Npb25hbCUyMGxhbmRzY2FwaW5nfGVufDF8fHx8MTc3Mjk2NjIxOXww&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Garden Maintenance"
+          src={logistikwagen}
+          alt="Dynamischer Logistikwagen"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
